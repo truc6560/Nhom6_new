@@ -17,12 +17,15 @@ Route::get('/sach','App\Http\Controllers\ViduLayoutController@sach');
 Route::get('sach/chitiet/{id}','App\Http\Controllers\ViduLayoutController@chitiet');
 Route::get('sach/theloai/{id}','App\Http\Controllers\ViduLayoutController@theloai');
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
-
+}); */
+Route::get('/','App\Http\Controllers\ViduLayoutController@sach'); 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/accountpanel','App\Http\Controllers\AccountController@accountpanel')->middleware('auth')->name("account");
+Route::post('/bookview','App\Http\Controllers\BookController@bookview')->name("bookview");
 
 require __DIR__.'/auth.php'; //
