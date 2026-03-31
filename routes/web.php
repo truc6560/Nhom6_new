@@ -13,13 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/trang1','App\Http\Controllers\ViduLayoutController@trang1');
-Route::get('/sach','App\Http\Controllers\ViduLayoutController@sach');
+Route::get('sach','App\Http\Controllers\ViduLayoutController@sach');
 Route::get('sach/chitiet/{id}','App\Http\Controllers\ViduLayoutController@chitiet');
 Route::get('sach/theloai/{id}','App\Http\Controllers\ViduLayoutController@theloai');
-
+Route::get('/order','App\Http\Controllers\ViduLayoutController@order')->name('order');
+Route::post('/cart/add','App\Http\Controllers\ViduLayoutController@cartadd')->name('cartadd');
+Route::post('/cart/delete','App\Http\Controllers\BookController@cartdelete')->name('cartdelete');
+Route::post('/order/create','App\Http\Controllers\BookController@ordercreate') 
+			->middleware('auth')->name('ordercreate');
+Route::get('/account','App\Http\Controllers\BookController@booklist')
+->middleware('auth')->name("account");
 Route::get('/', function () {
     return view('welcome');
-});
+}); 
 
 Route::get('/dashboard', function () {
     return view('dashboard');
