@@ -21,7 +21,7 @@
     
     <div class='info'>
         <div>
-            <img src="{{ asset('images/'.$data->file_anh_bia) }}" class="book-img">
+            <img src="{{ asset('image/'.$data->file_anh_bia) }}" class="book-img">
         </div>
         <div>
             <p>Nhà cung cấp: <b>{{ $data->nha_cung_cap }}</b></p>
