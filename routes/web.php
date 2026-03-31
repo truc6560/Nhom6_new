@@ -18,8 +18,8 @@ Route::get('sach/chitiet/{id}','App\Http\Controllers\ViduLayoutController@chitie
 Route::get('sach/theloai/{id}','App\Http\Controllers\ViduLayoutController@theloai');
 Route::get('/order','App\Http\Controllers\ViduLayoutController@order')->name('order');
 Route::post('/cart/add','App\Http\Controllers\ViduLayoutController@cartadd')->name('cartadd');
-Route::post('/cart/delete','App\Http\Controllers\BookController@cartdelete')->name('cartdelete');
-Route::post('/order/create','App\Http\Controllers\BookController@ordercreate') 
+Route::post('/cart/delete','App\Http\Controllers\ViduLayoutController@cartdelete')->name('cartdelete');
+Route::post('/order/create','App\Http\Controllers\ViduLayoutController@ordercreate') 
 			->middleware('auth')->name('ordercreate');
 Route::get('/account','App\Http\Controllers\BookController@booklist')
 ->middleware('auth')->name("account");
