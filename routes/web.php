@@ -26,7 +26,7 @@ Route::post('/order/create','App\Http\Controllers\ViduLayoutController@ordercrea
 Route::get('/account','App\Http\Controllers\BookController@booklist')
 ->middleware('auth')->name("account");
 
-Route::get('/', function () {
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
