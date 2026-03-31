@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang quản trị tài khoản</title>
@@ -14,8 +15,8 @@
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap4.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap4.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
    
-  <!-- Scripts -->
 
   <style>
     .sidebar {
@@ -44,6 +45,7 @@
     .navbar-nav
     {
         margin:0 auto;
+
         width:1000px;
         
     }
@@ -54,6 +56,7 @@
     .content {
       margin-left: 240px; /* Width of sidebar */
     }
+
   </style>
 </head>
 <body>
@@ -76,7 +79,9 @@
               </a>
             </li>
             <li class="nav-item">
+
               <a class="nav-link" href="{{route('booklist')}}">
+
                 Quản lý sách
               </a>
             </li>
@@ -90,5 +95,11 @@
       </main>
     </div>
   </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
