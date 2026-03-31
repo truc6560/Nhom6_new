@@ -46,7 +46,7 @@
     {
         margin:0 auto;
 
-        width:1000px;
+        width:60%;
         
     }
     .navbar-nav a

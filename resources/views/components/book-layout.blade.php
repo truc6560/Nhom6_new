@@ -57,19 +57,22 @@
                             </ul>
                     </div>
                     <div class='col-3 p-0 d-flex justify-content-end'>
+
                         <div style='color:white;position:relative' class='mr-2'>
-<div style='width:20px; height:20px;background-color:#23b85c; font-size:12px; border:none;
-border-radius:50%; position:absolute;right:2px;top:-2px' id='cart-number-product'>
-@if (session('cart'))
-{{ count(session('cart')) }}
-@else
-0
-@endif
-</div>
-<a href="{{route('order')}}" style='cursor:pointer;color:white;'>
-<i class="fa fa-cart-arrow-down fa-2x mr-2 mt-2" aria-hidden="true"></i>
-</a>
-</div>
+                            <div style='width:20px; height:20px;background-color:#23b85c; font-size:12px; border:none;
+                                border-radius:50%; position:absolute;right:2px;top:-2px' id='cart-number-product'>
+                            @if (session('cart'))
+                                {{ count(session('cart')) }}
+                            @else
+                                0
+                            @endif
+                            </div>
+
+                            <a href="{{route('order')}}" style='cursor:pointer;color:white;'>
+                                <i class="fa fa-cart-arrow-down fa-2x mr-2 mt-2" aria-hidden="true"></i>
+                            </a>
+                        </div>
+
                         @auth
                             <div class="dropdown">
                                 <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
@@ -79,44 +82,30 @@ border-radius:50%; position:absolute;right:2px;top:-2px' id='cart-number-product
                                 <a class="dropdown-item" href="{{route('account')}}">Quản lý</a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                <a class="dropdown-item" href="#" onclick="event.preventDefault();
-                                                                        this.closest('form').submit();">Đăng xuất</a>
-                                                </form>
-                                                </div>
-                                            </div>
-                                        @else
-                                            <a href="{{ route('login') }}">
-                                                <button class='btn btn-sm btn-primary'>Đăng nhập</button>
-                                            </a>&nbsp;
-                                            <a href="{{ route('register') }}">
-                                                <button class='btn btn-sm btn-success'>Đăng ký</button>
-                                            </a>
-                                        @endauth
-                                </div>
-                            </nav>
-                        </header>
-                        <main style="width:1000px; margin:2px auto;">
-                            <div class='row'>
-                                <div class='col-12'>
-                                {{$slot}}
+                                    <a class="dropdown-item" href="#" onclick="event.preventDefault();
+                                                        this.closest('form').submit();">Đăng xuất</a>
+                                    <!-- href="#" bổ sung thêm để hiện pointer -->
+                                </form>
                                 </div>
                             </div>
-                        </main>
-                        <script>
-                            $(document).ready(function(){
-                                $(document).on("click", ".menu-the-loai", function(e){
-                                    if($("#book-view-div").length === 0) {
-                                        e.preventDefault();
-                                        let the_loai = $(this).attr("the_loai");
-                                        
-                                        if(the_loai === "") {
-                                            window.location.href = "{{url('/sach')}}";
-                                        } else {
-                                            window.location.href = "{{url('sach/theloai')}}/" + the_loai;
-                                        }
-                                    }
-                                });
-                            });
-                        </script>
-                    </body>
-                </html>
+                        @else
+                            <a href="{{ route('login') }}">
+                                <button class='btn btn-sm btn-primary'>Đăng nhập</button>
+                            </a>&nbsp;
+                            <a href="{{ route('register') }}">
+                                <button class='btn btn-sm btn-success'>Đăng ký</button>
+                            </a>
+                        @endauth
+                </div>
+            </nav>
+            </header>
+            <main style="width:1000px; margin:2px auto;">
+                <div class='row'>
+                    <div class='col-12'>
+                    {{$slot}}
+                    </div>
+                </div>
+            </main>
+                        
+    </body>
+</html>
