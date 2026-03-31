@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
@@ -45,4 +44,4 @@ class AccountController extends Controller
         return redirect()->route('account')->with('status', 'Cập nhật thành công');
 
     }
-}
+

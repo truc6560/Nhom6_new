@@ -16,7 +16,7 @@ Route::get('/trang1','App\Http\Controllers\ViduLayoutController@trang1');
 Route::get('/sach','App\Http\Controllers\ViduLayoutController@sach');
 Route::get('sach/chitiet/{id}','App\Http\Controllers\ViduLayoutController@chitiet');
 Route::get('sach/theloai/{id}','App\Http\Controllers\ViduLayoutController@theloai');
-
+Route::get('/','App\Http\Controllers\ViduLayoutController@sach'); 
 
 Route::get('/order','App\Http\Controllers\ViduLayoutController@order')->name('order');
 Route::post('/cart/add','App\Http\Controllers\ViduLayoutController@cartadd')->name('cartadd');
@@ -28,17 +28,14 @@ Route::get('/account','App\Http\Controllers\BookController@booklist')
 
 Route::get('/', function () {
 
-/*Route::get('/', function () {
-
-    return view('welcome');
-}); */
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+  
+Route::get('/accountpanel','App\Http\Controllers\AccountController@accountpanel')->middleware('auth')->name("account");
+Route::post('/bookview','App\Http\Controllers\BookController@bookview')->name("bookview");
 
-
-require __DIR__.'/auth.php'; 
+require __DIR__.'/auth.php'; //
 
 Route::get('/','App\Http\Controllers\ViduLayoutController@sach');
 Route::get('/book/list','App\Http\Controllers\BookController@booklist')
@@ -56,7 +53,6 @@ Route::post('/book/delete','App\Http\Controllers\BookController@bookdelete')
 Route::get('/book/create','App\Http\Controllers\BookController@bookcreate')
 ->middleware('auth')->name("bookcreate");
 
-require __DIR__.'/auth.php'; //
 
 Route::get("/","App\Http\Controllers\ViDuLayoutController@sach");
 
@@ -65,4 +61,5 @@ Route::get('/accountpanel','App\Http\Controllers\AccountController@accountpanel'
 
 Route::post('/saveaccountinfo','App\Http\Controllers\AccountController@saveaccountinfo')
             ->middleware('auth')->name('saveinfo');
+
 

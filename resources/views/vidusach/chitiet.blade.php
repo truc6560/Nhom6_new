@@ -29,6 +29,11 @@
             <p>Tác giả: <b>{{ $data->tac_gia }}</b></p>
             <p>Hình thức bìa: <b>{{ $data->hinh_thuc_bia }}</b></p>
             <p>Giá bán: <b style="color:red">{{ number_format($data->gia_ban, 0, ",", ".") }}đ</b></p>
+                <div class='mt-1'>
+            <button class='btn btn-success btn-sm mb-1' id='add-to-cart' book_id="{{$data->id}}">
+                Thêm vào giỏ hàng
+            </button>
+        </div>
         </div>
     </div>
 
@@ -38,4 +43,20 @@
             <p>{{ $data->mo_ta }}</p>
         </div>
     </div>
+<script>
+        $(document).ready(function(){
+            $(".menu-the-loai").click(function(e){
+                e.preventDefault(); // Ngăn chặn hành động mặc định của thẻ #
+                let the_loai = $(this).attr("the_loai");
+
+                // Vì trang chi tiết không có vùng #book-view-div để nạp AJAX, 
+                // ta thực hiện chuyển hướng trang truyền thống về trang chủ hoặc thể loại
+                if (the_loai === "") {
+                    window.location.href = "{{ url('sach') }}";
+                } else {
+                    window.location.href = "{{ url('sach/theloai') }}/" + the_loai;
+                }
+            });
+        });
+    </script>
 </x-book-layout>
