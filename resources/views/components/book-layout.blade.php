@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
   <head>
       <title>{{$title}}</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -90,7 +89,7 @@
         </div>
     </main>
 
-    <head>
+<head>
         <title>{{$title}}</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
@@ -122,9 +121,16 @@
     </style>
     </head>
     <body>
+
+        
+        <!-- layout bài thực hành 3 -->
+         <header style='text-align:center'>
+            <img src="{{asset('image/banner_sach.jpg')}}" width="1000px">
+
         <!-- layout bài thực hành 3 -->
          <header style='text-align:center'>
             <img src="{{asset('images/banner_sach.jpg')}}" width="1000px">
+
             <nav class="navbar navbar-light navbar-expand-sm">
                 <div class='container-fluid p-0'>
                     <div class='col-9 p-0'>
@@ -177,6 +183,5 @@
                 </div>
             </div>
         </main>
-
     </body>
 </html>
