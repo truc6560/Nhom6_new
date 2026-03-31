@@ -89,10 +89,7 @@
                         </main>
                         <script>
                             $(document).ready(function(){
-                                // Xử lý menu thể loại cho trang chi tiết (không có #book-view-div)
                                 $(document).on("click", ".menu-the-loai", function(e){
-                                    // Nếu trang này có #book-view-div (trang danh sách), script trong index.blade.php sẽ xử lý
-                                    // Nếu không có #book-view-div (trang chi tiết), ta redirect sang trang danh sách thể loại
                                     if($("#book-view-div").length === 0) {
                                         e.preventDefault();
                                         let the_loai = $(this).attr("the_loai");
