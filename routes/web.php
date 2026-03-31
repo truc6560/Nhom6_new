@@ -32,9 +32,9 @@ Route::post('/saveaccountinfo','App\Http\Controllers\AccountController@saveaccou
 
 Route::post('/bookview','App\Http\Controllers\BookController@bookview')->name("bookview");
 
-Route::get('/sach','App\Http\Controllers\ViduLayoutController@sach');
-Route::get('sach/chitiet/{id}','App\Http\Controllers\ViduLayoutController@chitiet');
-Route::get('sach/theloai/{id}','App\Http\Controllers\ViduLayoutController@theloai');
+Route::get('/sach','App\Http\Controllers\ViDuLayoutController@sach');
+Route::get('sach/chitiet/{id}','App\Http\Controllers\ViDuLayoutController@chitiet');
+Route::get('sach/theloai/{id}','App\Http\Controllers\ViDuLayoutController@theloai');
 
 Route::get('/book/list','App\Http\Controllers\BookController@booklist')
             ->middleware('auth')->name("booklist");

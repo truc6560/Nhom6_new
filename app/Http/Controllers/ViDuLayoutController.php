@@ -7,7 +7,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 
-class ViduLayoutController extends Controller
+class ViDuLayoutController extends Controller
 {
     function trang1()
     {
