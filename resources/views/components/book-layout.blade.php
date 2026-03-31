@@ -106,6 +106,23 @@
                     </div>
                 </div>
             </main>
-                        
+                   
+            <script>
+                $(document).ready(function(){
+                    $(document).on("click", ".menu-the-loai", function(e){
+                        if($("#book-view-div").length === 0) {
+                            e.preventDefault();
+                            let the_loai = $(this).attr("the_loai");
+                            
+                            if(the_loai === "") {
+                                window.location.href = "{{url('/sach')}}";
+                            } else {
+                                window.location.href = "{{url('sach/theloai')}}/" + the_loai;
+                            }
+                        }
+                    });
+                });
+            </script>
+
     </body>
 </html>

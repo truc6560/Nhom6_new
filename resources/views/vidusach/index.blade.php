@@ -57,7 +57,8 @@
 	$(document).ready(function () {
 
 		// Khi người dùng click vào nút "add-product"
-		$(".add-product").click(function () {
+		// Sử dụng event delegation để áp dụng cho các phần tử được load động
+		$(document).on("click", ".add-product", function () {
 
 			// Lấy id sản phẩm từ thuộc tính book_id
 			let id = $(this).attr("book_id");
@@ -104,30 +105,36 @@
 
         // ajax khi click vào menu thể loại
 
-        $(".menu-the-loai").click(function(){
 
-            let the_loai = $(this).attr("the_loai");
-        
-            $.ajax({
-                type:"POST",
-                dataType:"html",
-                url: "{{route('bookview')}}",
-                data:{"_token": "{{ csrf_token() }}","the_loai":the_loai},
-                beforeSend:function(){
-            
-                },
-                success:function(data){
-                    $("#book-view-div").html(data);
-                },
-                error: function (xhr,status,error){
-                },
-                complete: function(xhr,status){
-                }
-            });
-        });
 
 	});
 
+    $(document).ready(function(){
+            $(".menu-the-loai").click(function(e){
+                e.preventDefault();
+                let the_loai = $(this).attr("the_loai");
+
+                // Update URL dựa trên thể loại
+                if(the_loai === "") {
+                    window.history.pushState(null, null, "{{url('/sach')}}");
+                } else {
+                    window.history.pushState(null, null, "{{url('sach/theloai')}}/" + the_loai);
+                }
+
+                $.ajax({
+                    type: "POST",
+                    dataType: "html", 
+                    url: "{{route('bookview')}}",
+                    data: {
+                        "_token": "{{ csrf_token() }}", 
+                        "the_loai": the_loai
+                    },
+                    success: function(data) {
+                        $("#book-view-div").html(data);
+                    }
+                });
+            });
+        });
 
 
 </script>
